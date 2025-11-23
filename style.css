@@ -1,0 +1,247 @@
+/* =========================================
+   VARIABLES GLOBALES (THEME)
+   ========================================= */
+:root {
+    /* Paleta de Colores Base para Neumorfismo */
+    --bg-color: #e0e5ec;       /* Gris azulado muy claro, clásico del estilo */
+    --text-main: #4a5568;      /* Gris oscuro para lectura cómoda */
+    --text-primary: #2b6cb0;   /* Azul para títulos destacados */
+    --accent-color: #ebf8ff;   /* Color de fondo para elementos activos */
+    
+    /* Fuentes Tipográficas */
+    --font-anton: 'Anton', sans-serif;
+    --font-oswald: 'Oswald', sans-serif;
+    --font-noto: 'Noto Serif', serif;
+
+    /* Dimensiones y Espaciado */
+    --border-radius: 20px;     /* Bordes redondeados suaves */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    
+    /* Transiciones */
+    --transition-speed: 0.3s;
+}
+
+/* =========================================
+   RESET Y BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Base para REM */
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-noto);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-sm);
+}
+
+/* =========================================
+   CLASES DE TIPOGRAFÍA
+   ========================================= */
+.font-anton {
+    font-family: var(--font-anton);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.font-oswald {
+    font-family: var(--font-oswald);
+}
+
+.font-noto {
+    font-family: var(--font-noto);
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+/* =========================================
+   LAYOUT PRINCIPAL
+   ========================================= */
+.app-container {
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo para escritorio */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Header */
+.neu-header {
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-md) 0;
+}
+
+.logo-area h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.logo-area p {
+    font-size: 1rem;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* Navegación */
+.neu-nav {
+    width: 100%;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.nav-list li {
+    flex: 1 1 auto; /* Responsive flex */
+    max-width: 200px;
+}
+
+/* Botones Base (Estilo estructural, sombras van en diseno.css) */
+.neu-btn {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    background: var(--bg-color);
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+/* Contenido Principal */
+.neu-content-area {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-sm);
+}
+
+/* Sección de Título del Ejercicio */
+.exercise-header {
+    text-align: center;
+}
+
+#exercise-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.math-block {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: left;
+    font-size: 1.1rem;
+    overflow-x: auto; /* Para que las fórmulas largas no rompan el diseño */
+}
+
+/* Sección de Visualización (Canvas) */
+.visualization-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+}
+
+.section-label {
+    align-self: flex-start;
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 5px;
+}
+
+.canvas-box {
+    width: 100%;
+    height: 400px; /* Altura base */
+    position: relative;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.neu-btn-small {
+    padding: 8px 16px;
+    border: none;
+    background: var(--bg-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Sección de Explicación */
+.explanation-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.steps-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* Estilos para los pasos inyectados por JS */
+.step-card {
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+}
+
+.step-title {
+    font-family: var(--font-oswald);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+/* Footer */
+.neu-footer {
+    text-align: center;
+    padding: var(--spacing-md);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: auto;
+}

@@ -1,0 +1,149 @@
+/* =========================================
+   DEFINICIÓN DE SOMBRAS Y COLORES NEUMÓRFICOS
+   ========================================= */
+:root {
+    /* 
+       La magia del Neumorfismo:
+       Fondo: #e0e5ec (Definido en style.css)
+       Sombra Oscura: #a3b1c6 (Simula la oclusión ambiental)
+       Sombra Clara: #ffffff (Simula la fuente de luz directa)
+    */
+    --shadow-light: #ffffff;
+    --shadow-dark: #a3b1c6;
+    
+    /* Configuraciones de profundidad */
+    --shadow-dist: 9px;  /* Distancia de la sombra para elementos "flotantes" */
+    --blur-radius: 16px; /* Difuminado */
+    
+    --inset-dist: 6px;   /* Distancia para elementos "hundidos" */
+    --inset-blur: 10px;
+}
+
+/* =========================================
+   CLASES UTILITARIAS DE EFECTOS
+   ========================================= */
+
+/* Efecto FLAT (Hacia afuera / Flotando) 
+   Usado en: Tarjetas, Botones inactivos, Header */
+.neu-flat {
+    background: var(--bg-color);
+    box-shadow: var(--shadow-dist) var(--shadow-dist) var(--blur-radius) var(--shadow-dark), 
+                calc(var(--shadow-dist) * -1) calc(var(--shadow-dist) * -1) var(--blur-radius) var(--shadow-light);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255,255,255, 0.2); /* Borde sutil para definición */
+}
+
+/* Efecto INSET (Hacia adentro / Hundido) 
+   Usado en: Campos de texto, Áreas de código, Botones activos, Canvas */
+.neu-inset {
+    background: var(--bg-color);
+    box-shadow: inset var(--inset-dist) var(--inset-dist) var(--inset-blur) var(--shadow-dark), 
+                inset calc(var(--inset-dist) * -1) calc(var(--inset-dist) * -1) var(--inset-blur) var(--shadow-light);
+    border-radius: var(--border-radius);
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS DE COMPONENTES
+   ========================================= */
+
+/* 1. Header y Logo */
+.logo-area {
+    /* Hereda .neu-flat pero ajustamos padding */
+    padding: 1.5rem;
+    display: inline-block; /* Para que la sombra abrace solo el texto */
+    min-width: 300px;
+}
+
+/* 2. Botones de Navegación (.neu-btn) */
+.neu-btn {
+    /* Estado Normal: Flat */
+    box-shadow: 6px 6px 10px var(--shadow-dark), 
+                -6px -6px 10px var(--shadow-light);
+    color: var(--text-main);
+    transition: all 0.2s ease-in-out;
+}
+
+.neu-btn:hover {
+    transform: translateY(-2px); /* Pequeña elevación al pasar el mouse */
+    color: var(--text-primary);
+}
+
+/* Estado Activo / Presionado: Inset */
+.neu-btn:active, 
+.neu-btn.active {
+    box-shadow: inset 4px 4px 8px var(--shadow-dark), 
+                inset -4px -4px 8px var(--shadow-light);
+    color: var(--text-primary);
+    transform: translateY(0);
+    font-weight: 700; /* Resaltar selección */
+}
+
+/* Botón pequeño de controles */
+.neu-btn-small {
+    box-shadow: 3px 3px 6px var(--shadow-dark), 
+                -3px -3px 6px var(--shadow-light);
+    color: var(--text-main);
+}
+
+.neu-btn-small:active {
+    box-shadow: inset 2px 2px 5px var(--shadow-dark), 
+                inset -2px -2px 5px var(--shadow-light);
+}
+
+/* 3. Bloques Matemáticos (Enunciados) */
+.math-block {
+    /* Aplicamos efecto hundido para que parezca una pantalla o papel */
+    background: #e0e5ec; /* Asegurar fondo */
+    box-shadow: inset 5px 5px 10px var(--shadow-dark), 
+                inset -5px -5px 10px var(--shadow-light);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 4. Contenedor del Canvas (Gráfica) */
+.canvas-box {
+    /* Efecto hundido profundo para la zona de dibujo */
+    box-shadow: inset 8px 8px 16px var(--shadow-dark), 
+                inset -8px -8px 16px var(--shadow-light);
+    border: 1px solid rgba(255,255,255,0.5); /* Borde brillante sutil */
+}
+
+/* 5. Tarjetas de Pasos (Explicación) */
+.step-card {
+    /* Efecto flotante para cada paso */
+    background: var(--bg-color);
+    box-shadow: 8px 8px 16px var(--shadow-dark), 
+                -8px -8px 16px var(--shadow-light);
+    margin-bottom: 1rem;
+    border-left: 4px solid transparent; /* Preparado para hover */
+    transition: border-color 0.3s ease;
+}
+
+.step-card:hover {
+    border-left: 4px solid var(--text-primary); /* Detalle visual al leer */
+}
+
+/* =========================================
+   DETALLES VISUALES ADICIONALES
+   ========================================= */
+
+/* Scrollbar personalizado para navegadores Webkit (Chrome, Safari)
+   para que no rompa la estética */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color); 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--shadow-dark);
+    border-radius: 20px;
+    border: 3px solid var(--bg-color); /* Crea espacio alrededor */
+}
+
+/* Selección de texto */
+::selection {
+    background: var(--text-primary);
+    color: #fff;
+}

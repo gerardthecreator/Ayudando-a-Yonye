@@ -1,0 +1,132 @@
+/* =========================================
+   VISTA MÓVIL (Smartphones ≤ 540px)
+   ========================================= */
+
+@media screen and (max-width: 540px) {
+
+    /* 1. REDEFINICIÓN DE VARIABLES (Escala Móvil)
+       Reducimos las sombras y espaciados para ganar espacio en pantalla. */
+    :root {
+        --spacing-lg: 1.5rem;
+        --spacing-md: 1rem;
+        --spacing-sm: 0.8rem;
+        --spacing-xs: 0.4rem;
+
+        /* Sombras más compactas y nítidas */
+        --shadow-dist: 4px;
+        --blur-radius: 8px;
+        
+        /* Inset más sutil */
+        --inset-dist: 3px;
+        --inset-blur: 5px;
+        
+        /* Radio de borde más pequeño */
+        --border-radius: 15px;
+    }
+
+    /* 2. AJUSTES GENERALES */
+    body {
+        padding: 10px; /* Mínimo margen lateral */
+    }
+
+    .app-container {
+        width: 100%;
+        gap: var(--spacing-md);
+    }
+
+    /* 3. HEADER COMPACTO */
+    .neu-header {
+        padding: 0.5rem 0;
+    }
+
+    .logo-area {
+        min-width: auto; /* Permitir que se encoja */
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .logo-area h1 {
+        font-size: 1.8rem; /* Reducir tamaño para evitar saltos de línea */
+        line-height: 1.2;
+    }
+
+    .logo-area p {
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    /* 4. NAVEGACIÓN EN CUADRÍCULA 2x2 */
+    .nav-list {
+        gap: 12px; /* Espacio entre botones */
+    }
+
+    .nav-list li {
+        /* Forzamos 2 columnas exactas */
+        flex: 1 1 40%; 
+        max-width: none;
+    }
+
+    .neu-btn {
+        padding: 10px 5px; /* Menos padding lateral */
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* 5. CONTENIDO Y MATEMÁTICAS */
+    #exercise-title {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .math-block {
+        padding: 1rem;
+        font-size: 0.95rem;
+        /* Manejo crucial para fórmulas largas en móvil */
+        overflow-x: auto; 
+        display: block;
+    }
+    
+    /* Asegurar que MathJax tenga scroll si se desborda */
+    mjx-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+    }
+
+    /* 6. CANVAS / GRÁFICAS */
+    .visualization-container {
+        padding: 1rem;
+    }
+
+    .canvas-box {
+        height: 250px; /* Altura reducida para ver contenido sin tanto scroll */
+    }
+
+    .controls {
+        justify-content: center; /* Botón centrado en móvil */
+        margin-top: 10px;
+    }
+
+    /* 7. PASOS DE RESOLUCIÓN */
+    .step-card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .step-title {
+        font-size: 1.1rem;
+    }
+
+    /* Ajuste de texto para lectura cómoda en pantallas estrechas */
+    p, li {
+        font-size: 0.95rem;
+        text-align: left; 
+    }
+
+    /* 8. FOOTER */
+    .neu-footer {
+        font-size: 0.8rem;
+        padding: 1rem 0;
+    }
+}

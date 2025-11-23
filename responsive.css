@@ -1,0 +1,78 @@
+/* =========================================
+   AJUSTES RESPONSIVOS GENERALES (Tablets y Laptops)
+   ========================================= */
+
+/* Rango: Tablets en Landscape y Laptops Pequeñas (Max 1024px) */
+@media screen and (max-width: 1024px) {
+    
+    /* Reducimos ligeramente el tamaño base de la fuente para ganar espacio */
+    html {
+        font-size: 15px;
+    }
+
+    /* El contenedor principal ocupa más ancho de pantalla */
+    .app-container {
+        width: 90%;
+        max-width: none; /* Quitamos el límite de 1000px */
+    }
+
+    /* Ajuste de la altura del canvas para pantallas más chatas */
+    .canvas-box {
+        height: 350px;
+    }
+}
+
+/* Rango: Tablets en Portrait (Max 768px) */
+@media screen and (max-width: 768px) {
+
+    /* Ajuste de variables de espaciado para compactar el diseño verticalmente */
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-md: 1.2rem;
+    }
+
+    /* HEADER: Simplificamos el padding */
+    .neu-header {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .logo-area h1 {
+        font-size: 2rem; /* Título un poco más pequeño */
+    }
+
+    /* NAVEGACIÓN: Grid de 2x2 */
+    /* Forzamos que los botones se acomoden en 2 columnas para ahorrar espacio vertical */
+    .nav-list {
+        gap: 1rem;
+    }
+
+    .nav-list li {
+        flex: 1 1 45%; /* Ocupan casi la mitad del ancho disponible */
+        max-width: none; /* Quitamos la restricción de ancho máximo */
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    .neu-content-area {
+        padding: 0; /* Quitamos padding extra del contenedor para aprovechar bordes */
+    }
+
+    /* CANVAS */
+    .canvas-box {
+        height: 300px; /* Reducimos altura para que quepa la explicación abajo */
+    }
+
+    /* TARJETAS DE PASOS */
+    .step-card {
+        padding: 1rem; /* Menos relleno interno */
+    }
+    
+    /* Ajuste de sombras para pantallas medianas:
+       Al ser elementos más pequeños, sombras muy grandes pueden verse sucias */
+    :root {
+        --shadow-dist: 6px;
+        --blur-radius: 12px;
+    }
+}
+
+/* Nota: Los estilos para móviles estrictos (≤ 540px) 
+   se manejarán exclusivamente en 'vista_movil.css' */
